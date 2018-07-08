@@ -39,7 +39,7 @@ under the License.
   <distributionManagement>
     <repository>
       <id>it</id>
-      <url>file:///${basedir}/target/repo</url>
+      <url>file:///${basedir}/target/remoterepo</url>
     </repository>
   </distributionManagement>
 
@@ -54,6 +54,20 @@ under the License.
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
         <version>@project.version@</version>
+      </plugin>
+      <!--
+       ! This is intentionally the old version which
+       ! will not create checksums by default.
+       ! We want to make sure that only maven-deploy-plugin
+       ! will generate the checksums. 
+       -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>2.5.2</version>
+        <configuration>
+          <createChecksum>false</createChecksum>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

@@ -17,9 +17,6 @@
  * under the License.
  */
 
-import java.io.*;
-import java.util.*;
-
 import org.apache.maven.plugins.deploy.Utils;
 
 def paths =
@@ -46,8 +43,8 @@ def cksumToCheckPaths = [
 
 def buildLog = new File ( basedir, "build.log")
 
-
-def repository = new File (basedir, "target/repo" )
+// Using the target/repo which is used are remote repository (deploy)
+def repository = new File (basedir, "target/remoterepo" )
 paths.each { path ->
     //File file = new File( localRepositoryPath, path );
     File file = new File( repository, path );

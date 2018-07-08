@@ -44,7 +44,8 @@ def cksumToCheckPaths = [
     "org/apache/maven/its/deploy/ajc/test/1.0/test-1.0-sources.jar"
 ]
 
-def repository = new File (basedir, "target/repo" )
+// Check if artifacts have been uploaded to remote with checksums
+def repository = new File (basedir, "target/remoterepo" )
 paths.each { path ->
     //File file = new File( localRepositoryPath, path );
     File file = new File( repository, path );
